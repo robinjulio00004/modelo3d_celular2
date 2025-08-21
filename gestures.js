@@ -42,8 +42,10 @@ AFRAME.registerComponent("gesture-handler", {
 
   handleRotation: function (event) {
     if (this.isVisible) {
+      /*this.el.object3D.rotation.y +=
+        event.detail.positionChange.x * this.data.rotationFactor;*/
       this.el.object3D.rotation.y +=
-        event.detail.positionChange.x * this.data.rotationFactor;
+        event.detail.positionChange.x;
       this.el.object3D.rotation.x +=
         event.detail.positionChange.y;
       /*this.el.object3D.rotation.x +=
@@ -234,6 +236,7 @@ AFRAME.registerComponent("gesture-detector", {
     return numberNames[Math.min(touchCount, 4) - 1];
   }
 });
+
 
 
 

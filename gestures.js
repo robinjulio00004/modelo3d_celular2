@@ -12,16 +12,16 @@ AFRAME.registerComponent("gesture-handler", {
     this.handleScale = this.handleScale.bind(this);
     this.handleRotation = this.handleRotation.bind(this);
 
-    this.isVisible = true;
+    this.isVisible = false;
     this.initialScale = this.el.object3D.scale.clone();
     this.scaleFactor = 1;
 
     this.el.sceneEl.addEventListener("markerFound", (e) => {
-      this.isVisible = true;
+      this.isVisible = false;
     });
 
     this.el.sceneEl.addEventListener("markerLost", (e) => {
-      this.isVisible = false;
+      this.isVisible = true;
     });
   },
 
@@ -232,4 +232,5 @@ AFRAME.registerComponent("gesture-detector", {
     return numberNames[Math.min(touchCount, 4) - 1];
   }
 });
+
 

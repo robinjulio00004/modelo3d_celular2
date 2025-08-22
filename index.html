@@ -17,7 +17,8 @@
 	<div class="buttons">
  	 <button id="boton" class="button" type="button" onclick="funcion_play()">Reproducir</button>
 	</div>
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene"
+	reflection="directionalLight:a-light#amblight;">
       <a-assets>
         <a-asset-item id="celular3d" src="celular3d_anim.glb">
         </a-asset-item>
@@ -33,10 +34,10 @@
 	<!--<a-light type="directional" color="white" position="0 0 -1"></a-light>
   	<a-light type="directional" color="white" position="0 0 0"></a-light>
   	<a-light type="directional" color="white" position="0 0 1" intensity="0.8"></a-light>-->
-	<a-light type="ambient" color="white" intensity="0.8"></a-light>-->
     </a-scene>
-		
+	<a-light id="amblight" position="0 1 0" color="white" intensity="0.8" light="castShadow:true;type:directional"></a-light>//type="ambient"
   </body>
+	
 	<script>
 		let modelo3d= document.getElementById("modelo_celular");
 		const vdo=document.querySelector('#evideo');
@@ -48,6 +49,7 @@ function funcion_play()
 }
 	</script>
 </html>
+
 
 
 
